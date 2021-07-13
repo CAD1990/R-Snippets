@@ -1,5 +1,4 @@
-# R-Snippets
-<Title>R Code Snippets</Title>
+# <h1>R Code Snippets</h1>
 
 <ul>
 <li>1). Find rows using a partial value</li>
