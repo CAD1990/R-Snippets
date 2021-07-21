@@ -1,8 +1,8 @@
 # Packages ---------------------------
 library("tidyverse")
-setwd("~/Documents/GitHub/R")
+setwd("~/Documents/GitHub/R/Austerity")
 # Load data ---------------------------
-GDP = read.csv("Data/gvaitl3.csv")
+GDP = read.csv("Data/GDP.csv")
 GOV = read.csv("Data/GOV.csv")
 # GDP data ---------------------------
 ITL3GDP = GDP %>%
@@ -76,12 +76,10 @@ averages = Austerity %>%
       change_2004_2005,
       change_2005_2006,
       change_2006_2007,
-      change_2007_2008,
-      change_2008_2009
+      change_2007_2008
     ),
     
     average_post_2009 = mean(
-      change_2009_2010,
       change_2010_2011,
       change_2011_2012,
       change_2012_2013,
@@ -163,12 +161,10 @@ GDPAverages = GDPGrowth %>%
       change_2004_2005,
       change_2005_2006,
       change_2006_2007,
-      change_2007_2008,
-      change_2008_2009
+      change_2007_2008
     ),
     
     average_post_2009 = mean(
-      change_2009_2010,
       change_2010_2011,
       change_2011_2012,
       change_2012_2013,
@@ -180,12 +176,10 @@ GDPAverages = GDPGrowth %>%
       change_2018_2019
     )
   ) %>%
-  select(ITL3.Region, average_pre_2009, average_post_2009) %>% 
-  print()
+  select(ITL3.Region, average_pre_2009, average_post_2009)
 
 ## Write to CSV -----------
 
-write.csv(Austerity, "Data/ITL3AusterityData.csv", row.names = FALSE)
-write.csv(averages, "Data/ITL3Averages.csv", row.names = FALSE)
-write.csv(Austerity, "Data/ITL3AusterityData.csv", row.names = FALSE)
-write.csv(GDPAverages, "Data/ITL3GDPAverageGrowth.csv", row.names = FALSE)
+write.csv(averages, "Analysis/ITL3Averages.csv", row.names = FALSE)
+write.csv(Austerity, "Analysis/ITL3AusterityData.csv", row.names = FALSE)
+write.csv(GDPAverages, "Analysis/ITL3GDPAverageGrowth.csv", row.names = FALSE)
